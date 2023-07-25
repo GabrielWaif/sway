@@ -1,14 +1,15 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
-font pango: JetBrainsMono Medium 12
+# font pango: JetBrainsMono Medium 12
 
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-gaps inner 10px
-gaps outer 10px
+gaps inner 15
+gaps inner 15
 
-default_border none
+default_border pixel 4
+smart_borders on
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -19,19 +20,15 @@ set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulator
+# The terminal on MOD+d
 set $term kitty
-
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
 
 # Wofi is a C-p like process search
 set $menu exec wofi --show drun 
 
 
 # Wallpaper Set
-output * bg ~/Pictures/Wallpapers/background.png fill
+output * bg ~/documents/wallpaper.jpg fill
 
 # Resoltion Set
 output Virtual-1 res 1920x1080
@@ -192,23 +189,15 @@ input "type:pointer" {
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
+    # Sends one item to a buffer that can be cicled through
     bindsym $mod+Shift+minus move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
+    # Cycles through the itens in the buffer and closes/opens on the last item
     bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -236,3 +225,12 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Colors
+# class                 border  bground text    indicator child_border
+client.focused          #ebbcba #6272A4 #F8F8F2 #403d52   #403d52
+client.focused_inactive #21202e #44475A #F8F8F2 #44475A   #403d52
+client.unfocused        #21202e #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #ebbcba #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #21202e #282A36 #F8F8F2 #282A36   #282A36
+client.background       #ebbcba

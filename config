@@ -27,7 +27,7 @@ set $term kitty
 set $menu exec wofi --show drun 
 
 # Wallpaper Set
-output * bg ~/documents/wallpaper.jpg fill
+output * bg ./wallpaper.jpg fill
 
 # Resoltion
 output Virtual-1 res 1920x1080

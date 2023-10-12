@@ -67,6 +67,8 @@ input "type:pointer" {
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -85,6 +87,10 @@ input "type:pointer" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Execute swaylock
+    # TODO: Change this to fn+F10
+    bindsym $mod+i exec swaylock
 
 # Moving around:
     # Move your focus around
